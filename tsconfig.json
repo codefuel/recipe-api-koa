@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "emitDecoratorMetadata": false,
+    "esModuleInterop": true,
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "noImplicitAny": true,
+    "outDir": "dist",
+    "resolveJsonModule": true,
+    "rootDir": "src",
+    "strict": true,
+    "skipLibCheck": true,
+    "target": "ES2020"
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "plugins": [
+    { "transform": "typescript-transform-paths" }
+  ]
+}
