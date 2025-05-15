@@ -6,7 +6,7 @@ const pingRouter = new Router();
 
 /**
  * @openapi
- * /api/v1/ping:
+ * /ping:
  *   get:
  *     summary: Health check endpoint
  *     responses:

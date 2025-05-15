@@ -21,6 +21,7 @@ const ajv = new Ajv({ allErrors: true });
  *           type: string
  *         required: true
  *         description: The name of the recipe to search for
+ *         example: "tacos"
  *     responses:
  *       200:
  *         description: Successfully retrieved recipes

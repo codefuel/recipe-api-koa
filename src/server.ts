@@ -5,6 +5,7 @@ import { koaSwagger } from 'koa2-swagger-ui';
 import swaggerJsDoc from 'swagger-jsdoc';
 
 import { router as v1Router } from './presentation/http/v1';
+import pingRouter from './presentation/http/v1/routes/ping';
 
 const app = new Koa();
 const router = new Router();
@@ -29,12 +30,13 @@ app.use(bodyParser());
 router.get('/api-docs', koaSwagger({
   routePrefix: false,
   swaggerOptions: {
-    spec: swaggerSpec,
+    spec: swaggerSpec as Record<string, unknown>,
     url: '/api-docs/swagger.json'
-  } as Record<string, unknown>
+  }
 }));
 
 // Routes
+router.use(pingRouter.routes(), pingRouter.allowedMethods());
 router.use('/api/v1', v1Router.routes(), v1Router.allowedMethods());
 
 // Register router

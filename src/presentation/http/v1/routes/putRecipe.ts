@@ -11,9 +11,17 @@ const ajv = new Ajv({ allErrors: true });
 
 /**
  * @openapi
- * /api/v1/recipe:
+ * /api/v1/recipe/{recipeId}:
  *   put:
  *     summary: Update an existing recipe
+ *     parameters:
+ *       - in: path
+ *         name: recipeId
+ *         schema:
+ *           type: integer
+ *         required: true
+ *         description: ID of the recipe to update
+ *         example: 1
  *     requestBody:
  *       required: true
  *       content:
@@ -21,10 +29,6 @@ const ajv = new Ajv({ allErrors: true });
  *           schema:
  *             type: object
  *             properties:
- *               id:
- *                 type: integer
- *                 description: ID of the recipe to update
- *                 example: 1
  *               name:
  *                 type: string
  *                 description: Updated name of the recipe
@@ -48,8 +52,8 @@ const ajv = new Ajv({ allErrors: true });
  *               type: object
  *               properties:
  *                 success:
- *                   type: string
- *                   example: "OK"
+ *                   type: boolean
+ *                   example: true
  *       400:
  *         description: Invalid request body
  *         content:
@@ -61,7 +65,9 @@ const ajv = new Ajv({ allErrors: true });
  *                   type: boolean
  *                   example: false
  *                 error:
- *                   type: object
+ *                   type: array
+ *                   items:
+ *                     type: object
  *       500:
  *         description: Server error
  *         content:
