@@ -1,0 +1,9 @@
+# Configs
+
+server:
+  port: 3000
+
+## The Meal DB
+
+theMealDb:
+  api: API_URL
